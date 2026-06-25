@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Chatbot</title>
+    <style>
+        body{
+            font-family: Arial;
+            max-width:600px;
+            margin:50px auto;
+            padding:20px;
+        }
+
+        form{
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+        }
+
+        input,button{
+            padding:10px;
+        }
+
+        button{
+            background:#007bff;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        .output{
+            margin-top:20px;
+            padding:10px;
+            background:#f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>PDF Chatbot</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="text" name="user" placeholder="Ask a question" required>
+
+        <input type="file" name="file" accept=".pdf" required>
+
+        <button type="submit">Ask</button>
+    </form>
+
+    {% if output %}
+    <div class="output">
+        <p>{{ output }}</p>
+    </div>
+    {% endif %}
+
+</body>
+</html>
